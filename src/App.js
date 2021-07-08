@@ -6,6 +6,7 @@ import Pokedex from './components/Pokedex';
 import {getPokemonData, getPokemons, searchPokemon} from  './api';
 import {FavoriteProvider} from './components/contexts/favoriteContext';
 
+
 /*Aplicamos un hook */
 const {useState, useEffect} = React;
 
@@ -96,6 +97,7 @@ export default function App() {
     setLoading(false);
     setSerching (false);
   }
+  
 
   return (
     <FavoriteProvider value={{
@@ -120,5 +122,7 @@ export default function App() {
     </FavoriteProvider>
     
   );
+    
+  
 }
 

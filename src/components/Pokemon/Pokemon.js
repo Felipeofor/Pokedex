@@ -1,10 +1,25 @@
 import React, {useContext} from 'react';
 import FavoriteContext from '../contexts/favoriteContext'
+import {Modal} from '../Modal/Modal';
+import { useState } from "react";
+import { searchPokemon } from '../../api';
 
 /*Creamos un componente que solo muestra informacion basado en informacion que le pasamos de los props */
 
+
+
 const Pokemon =  (props) => {
 
+      /*Modal */
+
+    const [showModal, setShowModal] = useState(false);
+    const openModal = (props) => {
+      setShowModal(true, props);
+    };
+
+
+
+    /*Selecciono mi pokemons favoritos*/
     const {pokemon} = props;
     const {favoritePokemons, updateFavoritePokemons} = useContext(FavoriteContext);
 
@@ -15,7 +30,11 @@ const Pokemon =  (props) => {
     const clickHeart = (e) => {
         e.preventDefault();
         updateFavoritePokemons(pokemon.name);
+        const data =  searchPokemon(pokemon.name);
+        console.log(data); 
     }
+
+    
 
     return (
         <div className= "pokemon-card">
@@ -38,6 +57,13 @@ const Pokemon =  (props) => {
                     <div className="pokemon-favorite">{heart}</div>
                     </button>
                 </div>
+                <div>
+            <button className="caracteristicas-btn" onClick={openModal} 
+            value={pokemon.name}>Ver caracteristicas</button>
+            {showModal ? <Modal setShowModal={setShowModal}
+                                     elements = {props}
+            /> : null}
+            </div>
             </div>
         </div>
     );
