@@ -5,17 +5,14 @@ import Navbar from './components/Searchbar';
 
 
 
-function App() {
-
+export default function App() {
   return (
-
     <div>
       <Navbar />
-    <div className="App">
-      <Searchbar/>
-    </div>
+        <div className="App">
+          <Searchbar/>
+        </div>
     </div>
   );
 }
 
-export default App;
