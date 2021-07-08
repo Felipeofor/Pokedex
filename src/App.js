@@ -1,8 +1,7 @@
 import React from 'react';
 import './style.css';
-import Searchbar from './components/Navbar';
-import Navbar from './components/Searchbar';
-
+import Navbar from './components/Navbar';
+import Searchbar from './components/Searchbar';
 
 
 export default function App() {
