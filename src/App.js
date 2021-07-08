@@ -43,6 +43,17 @@ export default function App() {
     }
   }
 
+    const loadFavoritePokemons = () => {
+      const pokemons =
+      JSON.parse(window.localStorage.getItem(localStorageKey)) || [];
+      setFavorites(pokemons);
+    }
+
+    useEffect(() => {
+      loadFavoritePokemons();
+    }, []);
+
+
 /*Le pasamos una funcion, pero hacemos que ejecute este codigo solo una vez cuando termine de renderizar. Lo hacemos con un array vacio*/
 /*Para que refleje una lista de pokemons cuando ingresamos a la app */
   useEffect(() => {
@@ -61,6 +72,29 @@ export default function App() {
       updated.push(name);
     }
     setFavorites(updated);
+    window.localStorage.setItem(localStorageKey, JSON.stringify(updated));
+  }
+
+  const onSearch = async (pokemon) => {
+    if (!pokemon) {
+      return fetchPokemons;
+    }
+    setLoading(true);
+    setNotFound (false);
+    setSerching (true);
+    const result = await searchPokemon (pokemon);
+    if (!result) {
+      setNotFound(true);
+      setLoading(false);
+      return;
+    }
+    else {
+      setPokemons ([result]);
+      setPage(0);
+      setTotal(1);
+    }
+    setLoading(false);
+    setSerching (false);
   }
 
   return (
@@ -71,7 +105,8 @@ export default function App() {
     <div>
       <Navbar />
         <div className="App">
-          <Searchbar/>
+          <Searchbar onSearch={onSearch} />
+          {notFound ? ( <div className="not-found-text">No se encontro el Pokemon que buscabas 😥</div>) : (
           <Pokedex 
             loading = {loading}
             pokemons = {pokemons}
@@ -79,6 +114,7 @@ export default function App() {
             setPage = {setPage}
             total = {total}
           />
+          )}
         </div>
       </div>
     </FavoriteProvider>
