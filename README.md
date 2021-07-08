@@ -8,7 +8,7 @@ Para ejecutar el repositorio en tu ordenador debes:
 
 2. Iniciar la consola dentro de la carpeta donde lo guardaste.
 
-3.Ejecutar el comando: npm install
+3. Ejecutar el comando: npm install
 
 4. Luego el comando npm start
 
