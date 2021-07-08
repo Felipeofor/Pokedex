@@ -3,7 +3,7 @@ import './style.css';
 import Navbar from './components/Navbar';
 import Searchbar from './components/Searchbar';
 import Pokedex from './components/Pokedex';
-import {getPokemons} from  './api';
+import {getPokemonData, getPokemons} from  './api';
 
 /*Aplicamos un hook */
 const {useState, useEffect} = React;
@@ -17,7 +17,11 @@ export default function App() {
     /*Protegemos la aplicacion ante cualquier error que pueda traer la api con try catch */
     try {
       const data = await getPokemons();/*Llamamos a la api */
-      setPokemons(data.results);
+      const promises = data.results.map(async (pokemon) => {
+        return await getPokemonData(pokemon.url)
+      })
+      const results = await Promise.all(promises)
+      setPokemons(results)
     } catch (err) {
       
     }

@@ -1,3 +1,6 @@
+/*Aqui estan las constantes que consumen de la api */
+/*Buscamos el pokemon que el usuario ingreso */
+
 export const searchPokemon = async (pokemon) => {
     /*Protegemos la aplicacion ante cualquier error que pueda traer la api con try catch */
     try {
@@ -12,6 +15,8 @@ export const searchPokemon = async (pokemon) => {
     }
 };
 
+/*Cargamos una x cantidad de pokemon en la pantalla principal */
+
 export const getPokemons = async (limit=10, offset=0) => {
     try {
         /*Creamos una variable que consume de la api el pokemon que el usuario este buscando */
@@ -22,5 +27,18 @@ export const getPokemons = async (limit=10, offset=0) => {
     }
     catch (err) {
 
+    }
+}
+
+/*Obtenemos mas informacion de cada pokemon para renderizar las tarjetas */
+
+export const getPokemonData = async (url) => {
+    try {
+        const response = await fetch(url);/*Fetch nos permite obtener la informacion de la url*/
+        const data = await response.json();/*Pasamos la informacion recibida a Json*/
+        return data;/*Retornamos esa infomarcion a nuestro componente de React */
+        
+    } catch (err) {
+        
     }
 }

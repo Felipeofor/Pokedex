@@ -7,20 +7,22 @@ const {useState} = React;
 /*BUSCADOR DE POKEMON*/
 
 
-const Searchbar = () => {
+const Searchbar = (props) => {
 
     /*Ingreso el valor inicial del search*/
-    const [search, setSearch] = useState('');
-    const [pokemon,setPokemon] = useState();
+    const {onSearch} = props;
+    const [search,setSearch] = useState('');
 
     const onChange = (evt) => {
         /*Actualizamos el DOM con cada cambio que ingrese el usuario*/
         setSearch(evt.target.value);
-    }
+        if (evt.target.value.lenght === 0) {
+           onSearch(null);
+       }
+    };
     /*Cuando presionemos el boton llamaremos a la funcion searchPokemon del archivo api.js para que busque el pokemon deseado*/
     const onClick = async (evt) => {
-        const data = await searchPokemon(search);
-        setPokemon(data);
+        onSearch(search);
     }
  
     return (
