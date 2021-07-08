@@ -17,6 +17,7 @@ Con eso tendria que ser suficiente para que se ejecute en tu navegador.
 
 Cualquier duda o comentario podes consultarme via mail. Felipeofor@gmail.com
 
-![1](https://user-images.githubusercontent.com/81161385/124950498-d7bfa580-dfe8-11eb-9a5b-763b76665cf3.jpg)
+![1](https://user-images.githubusercontent.com/81161385/125003958-cdc09580-e02e-11eb-8fab-984e644e3be9.jpg)
 
-![2](https://user-images.githubusercontent.com/81161385/124951074-646a6380-dfe9-11eb-9004-5220fe426320.jpg)
+![2](https://user-images.githubusercontent.com/81161385/125003968-d1541c80-e02e-11eb-84ed-9bd7db949f64.jpg)
+
