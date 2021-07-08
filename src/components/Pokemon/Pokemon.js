@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import FavoriteContext from '../contexts/favoriteContext'
 
 /*Creamos un componente que solo muestra informacion basado en informacion que le pasamos de los props */
 
 const Pokemon =  (props) => {
 
     const {pokemon} = props;
+    const {favoritePokemons, updateFavoritePokemons} = useContext(FavoriteContext);
 
-    const redHeart = "&#10084;&#65039";
+    const redHeart = "❤";
     const blackHeart = "🖤";
+    const heart = favoritePokemons.includes(Pokemon.name) ? redHeart :blackHeart;
+
+    const clickHeart = (e) => {
+        e.preventDefault();
+        updateFavoritePokemons(Pokemon.name);
+    }
 
     return (
         <div className= "pokemon-card">
@@ -25,8 +33,8 @@ const Pokemon =  (props) => {
                          <div key={idx} className="pokemon-type-text" >{type.type.name}</div>
                      )
                     })}</div>
-                    <button>
-                    <div className="pokemon-favorite">{blackHeart}</div>
+                    <button onClick={clickHeart}>
+                    <div className="pokemon-favorite">{heart}</div>
                     </button>
                 </div>
             </div>
