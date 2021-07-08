@@ -3,22 +3,26 @@ import './style.css';
 import Navbar from './components/Navbar';
 import Searchbar from './components/Searchbar';
 import Pokedex from './components/Pokedex';
-import {getPokemonData, getPokemons} from  './api';
+import {getPokemonData, getPokemons, searchPokemon} from  './api';
 import {FavoriteProvider} from './components/contexts/favoriteContext';
 
 /*Aplicamos un hook */
 const {useState, useEffect} = React;
+
+const localStorageKey = 'favorite_pokemon';
 
 
 export default function App() {
 
   const [pokemons, setPokemons] = useState([]);
   /*Creamos las paginas donde se va a mostrar los pokemons */
-  const [page, setPage] = useState();
+  const [page, setPage] = useState(0);
   const [total,setTotal] = useState(0);
   /*Creamos una cost que nos muestre un mensaje que los pokemoms se estan cargando y cuando termine de cargar cambia su estado a false*/
   const [loading, setLoading] = useState(true);
   const [favorites, setFavorites] = useState([]);
+  const [notFound, setNotFound] = useState(false);
+  const [serching, setSerching] = useState(false);
 
 
   const fetchPokemons = async () => {
@@ -29,7 +33,7 @@ export default function App() {
       const promises = data.results.map(async (pokemon) => {
         return await getPokemonData(pokemon.url)
       })
-      const results = await Promise.all(promises)
+      const results = await Promise.all(promises);
       setPokemons(results);
       /*Cambio de estado de setLoading cuando se termina la carga */
       setLoading(false);

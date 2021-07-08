@@ -14,7 +14,7 @@ const Navbar = () => {
 
     return (
         <nav>
-            <div />
+            <div/>
             <div>
             <img src={imgUrl} 
             alt ='pokeapi-logo'

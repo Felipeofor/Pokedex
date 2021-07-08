@@ -1,4 +1,5 @@
 import React from 'react';
+import { LeftArrow, RightArrow } from '../ArrowsSvg/ArrowsSvg';
 
 const Pagination = (props) => {
 
@@ -6,9 +7,9 @@ const Pagination = (props) => {
 
     return (
         <div className="pagination">
-            <button onClick = {onLeftClick}><div>👈🏻</div></button>
+            <button className="pagination-btn" onClick = {onLeftClick}><div className="icon"><LeftArrow/></div></button>
             <div>{page} de {totalPages}</div>
-            <button onClick = {onRightClick}><div>👉🏻</div></button>
+            <button className="pagination-btn" onClick = {onRightClick}><div className="icon"><RightArrow/></div></button>
         </div>
     )
 }

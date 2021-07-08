@@ -10,16 +10,16 @@ const Pokedex = (props) => {
 
     const lastPage = () => {
         const nextPage = Math.max(page - 1, 0);
-        setPage(nextPage)
-    }
+        setPage(nextPage);
+    };
 
     const nextPage = () => {
-        const nextPage = Math.min(page + 1, total);
+        const nextPage = Math.min(page + 1, total -1);
         setPage(nextPage);
-    }
+    };
 
 
-    /*Recorremos la const pokemos con map */
+    /*Recorremos la const pokemons con map */
     /*Aplicamos una key para los nombre de los pokemons */
 
     return (
@@ -34,14 +34,14 @@ const Pokedex = (props) => {
                 />
             </div>
             {loading ?
-            <div>Cargando pokemones...</div> :
+            <div>Cargando pokemones...</div> : (
                 <div className="pokedex-grid">
-                    {pokemons.map((pokemon, idx) => {
+                    {pokemons.map((pokemon) => {
                         return <Pokemon pokemon = {pokemon}
                          key={pokemon.name}/>
                 })}
             </div>
-            }
+            )}
         </div>
     );
 };

@@ -8,13 +8,13 @@ const Pokemon =  (props) => {
     const {pokemon} = props;
     const {favoritePokemons, updateFavoritePokemons} = useContext(FavoriteContext);
 
-    const redHeart = "❤";
+    const redHeart = "❤️";
     const blackHeart = "🖤";
-    const heart = favoritePokemons.includes(Pokemon.name) ? redHeart :blackHeart;
+    const heart = favoritePokemons.includes(pokemon.name) ? redHeart :blackHeart;
 
     const clickHeart = (e) => {
         e.preventDefault();
-        updateFavoritePokemons(Pokemon.name);
+        updateFavoritePokemons(pokemon.name);
     }
 
     return (
@@ -31,9 +31,10 @@ const Pokemon =  (props) => {
                     <div className="pokemon-type">{pokemon.types.map((type,idx) => {
                      return (
                          <div key={idx} className="pokemon-type-text" >{type.type.name}</div>
-                     )
-                    })}</div>
-                    <button onClick={clickHeart}>
+                     );
+                    })}
+                    </div>
+                    <button onClick={clickHeart}  className="pokemon-heart-btn">
                     <div className="pokemon-favorite">{heart}</div>
                     </button>
                 </div>
