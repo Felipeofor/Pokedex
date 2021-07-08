@@ -27,7 +27,7 @@ export default function App() {
     }
   }
 
-/*Le pasamos una funcion, pero hacemos que ejecute este codigo solo una vez cuando termine de renderizar con un array vacio*/
+/*Le pasamos una funcion, pero hacemos que ejecute este codigo solo una vez cuando termine de renderizar. Lo hacemos con un array vacio*/
 /*Para que refleje una lista de pokemons apenas ingresamos a la app */
   useEffect(() => {
     fetchPokemons();

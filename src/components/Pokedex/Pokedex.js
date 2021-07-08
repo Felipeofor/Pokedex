@@ -1,13 +1,13 @@
 import React from 'react';
 import Pokemon from '../Pokemon';
 
+
 const Pokedex = (props) => {
 
     /*Obtengo la informacion del props*/
     const {pokemons} = props;
 
     /*Recorremos la const pokemos con map */
-    /*Los enumeramos con {idx+1}*/
     /*Aplicamos una key para los nombre de los pokemons */
 
     return (
