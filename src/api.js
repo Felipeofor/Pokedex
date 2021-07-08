@@ -17,7 +17,7 @@ export const searchPokemon = async (pokemon) => {
 
 /*Cargamos una x cantidad de pokemon en la pantalla principal */
 
-export const getPokemons = async (limit=10, offset=0) => {
+export const getPokemons = async (limit=25, offset=0) => {
     try {
         /*Creamos una variable que consume de la api el pokemon que el usuario este buscando */
         let url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`/*Cargamos una x cantidad de pokemon en la pantalla principal */

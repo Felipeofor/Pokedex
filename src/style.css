@@ -4,6 +4,8 @@
     margin: 0px;;
 }
 
+/****App****/
+
 .App {
     font-family: sans-serif;
 }
@@ -132,4 +134,12 @@ nav {
 
 .card-top h3 {
     text-transform: capitalize;
+}
+
+/*******************************Pagination************************************/***
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

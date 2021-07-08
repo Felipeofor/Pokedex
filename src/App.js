@@ -12,33 +12,48 @@ const {useState, useEffect} = React;
 export default function App() {
 
   const [pokemons, setPokemons] = useState([]);
+  /*Creamos las paginas donde se va a mostrar los pokemons */
+  const [page, setPage] = useState();
+  const [total,setTotal] = useState(0);
+  /*Creamos una cost que nos muestre un mensaje que los pokemoms se estan cargando y cuando termine de cargar cambia su estado a false*/
+  const [loading, setLoading] = useState(true);
 
   const fetchPokemons = async () => {
     /*Protegemos la aplicacion ante cualquier error que pueda traer la api con try catch */
     try {
-      const data = await getPokemons();/*Llamamos a la api */
+      setLoading(true);
+      const data = await getPokemons(25, 25 * page);/*Llamamos a la api con la cantidad de pokemons que queremos y lo multiplicamos por la pagina en la que estemos*/
       const promises = data.results.map(async (pokemon) => {
         return await getPokemonData(pokemon.url)
       })
       const results = await Promise.all(promises)
-      setPokemons(results)
+      setPokemons(results);
+      /*Cambio de estado de setLoading cuando se termina la carga */
+      setLoading(false);
+      setTotal(Math.ceil(data.count / 25));
     } catch (err) {
       
     }
   }
 
 /*Le pasamos una funcion, pero hacemos que ejecute este codigo solo una vez cuando termine de renderizar. Lo hacemos con un array vacio*/
-/*Para que refleje una lista de pokemons apenas ingresamos a la app */
+/*Para que refleje una lista de pokemons cuando ingresamos a la app */
   useEffect(() => {
     fetchPokemons();
-  }, []);
+  }, [page]);
 
   return (
     <div>
       <Navbar />
         <div className="App">
           <Searchbar/>
-          <Pokedex pokemons={pokemons}/>
+          <Pokedex 
+            loading = {loading}
+            pokemons = {pokemons}
+            page = {page}
+            setPage = {setPage}
+            total = {total}
+          />
         </div>
     </div>
   );
