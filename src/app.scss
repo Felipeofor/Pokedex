@@ -1,0 +1,82 @@
+/********ANIDAMIENTO********/
+
+@import 'components/Modal/Modal';
+@import 'components/Navbar/Navbar';
+@import 'components/Pagination/Pagination';
+@import 'components/Pokedex/Pokedex';
+@import 'components/Pokemon/Pokemon';
+@import 'components/Searchbar/Searchbar';
+
+
+
+/***********************************Universal style***********************************/
+
+*{
+    margin: 0px;
+    color: red;
+}
+
+/****App****/
+
+body {
+    font-family: sans-serif;
+    background-image: url('https://i.ytimg.com/vi/Q9ONYPyHBSs/maxresdefault.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+
+}
+
+
+
+
+/*******************************Header***************************/
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;  
+  align-items: center;
+  padding: 10px;
+}
+
+
+
+
+
+
+/***************Responsive************************/
+
+@media screen and (max-width: 992px) {
+    .pokedex-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .App{
+        background-repeat: repeat;
+    }
+    .container .modal {
+        width: 80%;
+        height: 80%;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .pokedex-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .container .modal {
+        width: 95%;
+        height: 90%;
+    }
+}
+
+
+@media screen and (max-width: 1600px) {
+    body{
+        background-repeat: repeat;
+    }
+    .container .modal {
+        width: 70%;
+        height: 70%;
+    }
+}

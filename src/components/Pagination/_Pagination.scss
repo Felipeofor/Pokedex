@@ -1,0 +1,28 @@
+/*******************************Pagination************************************/***
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.icon {
+    width: 28px;
+    height: 28px;
+}
+
+.pagination-btn {
+    background-color: green;
+    border: none;
+    border-radius: 50%;
+    width:32px;
+    height:32px;
+    margin : 0px 8px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    cursor: pointer;
+}
+

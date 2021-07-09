@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css';
+import './app.scss';
 import Navbar from './components/Navbar';
 import Searchbar from './components/Searchbar';
 import Pokedex from './components/Pokedex';

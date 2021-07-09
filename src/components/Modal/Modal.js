@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import ReactDom from "react-dom";
-import Pokemon from '../Pokemon';
-import { searchPokemon } from '../../api';
+
+
 export const Modal = ({ setShowModal, elements}) => {
   console.log(elements)
   // close the modal when clicking outside the modal.
