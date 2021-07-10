@@ -1,3 +1,4 @@
+//Importamos los componentes
 import React from 'react';
 
 const FavoriteContext = React.createContext({

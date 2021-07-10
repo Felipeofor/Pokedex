@@ -1,17 +1,18 @@
+//Importamos los componentes
 import React, { useRef } from "react";
 import ReactDom from "react-dom";
 
 
 export const Modal = ({ setShowModal, elements}) => {
   console.log(elements)
-  // close the modal when clicking outside the modal.
+  // Cerrramos el modal cuando hacemos click fuera de el
   const modalRef = useRef();
   const closeModal = (e) => {
     if (e.target === modalRef.current) {
       setShowModal(false);
     }
   };
-  //render the modal JSX in the portal div.
+  {/*Imagen y caracteristicas del pokemon dentro del modal */}
   return ReactDom.createPortal(
     <div className="container" ref={modalRef} onClick={closeModal}>
       <div className="modal">

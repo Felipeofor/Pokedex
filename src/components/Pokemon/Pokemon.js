@@ -1,3 +1,4 @@
+//Importamos los componentes
 import React, {useContext} from 'react';
 import FavoriteContext from '../contexts/favoriteContext'
 import {Modal} from '../Modal/Modal';

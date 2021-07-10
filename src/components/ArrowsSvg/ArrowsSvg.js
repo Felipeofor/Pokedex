@@ -1,5 +1,5 @@
+//Importamos los componentes
 import React from 'react';
-import FavoriteContext from '../contexts/favoriteContext'
 
 export const LeftArrow = () => {
     return (

@@ -1,3 +1,4 @@
+//Importamos los componentes
 import React from 'react';
 import Pokemon from '../Pokemon';
 import Pagination from '../Pagination';
@@ -20,7 +21,7 @@ const Pokedex = (props) => {
 
 
     /*Recorremos la const pokemons con map */
-    /*Aplicamos una key para los nombre de los pokemons */
+    /*Aplicamos una key para los nombres de los pokemons */
 
     return (
         <div>

@@ -1,3 +1,4 @@
+//Importamos los componentes
 import React from 'react';
 /*Le avisamos a React que renderice con cada cambio de estado*/
 const {useState} = React; 

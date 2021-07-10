@@ -1,5 +1,7 @@
-import React from 'react';
+//Importamos la hoja de estilo
 import './app.scss';
+//Importamos los componentes
+import React from 'react';
 import Navbar from './components/Navbar';
 import Searchbar from './components/Searchbar';
 import Pokedex from './components/Pokedex';
