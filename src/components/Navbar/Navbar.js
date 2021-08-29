@@ -1,14 +1,14 @@
 //Importamos los componentes
 import React from 'react';
-import FavoriteContext from '../contexts/favoriteContext'
+import FavoriteContext from '../contexts/FavoriteContext';
 
 /*BARRA DE NAVEGACION */
 
-const {useContext} = React;
+const { useContext } = React;
 
 const Navbar = () => {
 
-    const {favoritePokemons} = useContext(FavoriteContext)
+    const {favoritePokemons} = useContext(FavoriteContext);
 
     /*Creamos la variable con la imagen importada de pokeapi 'logo' */
     let imgUrl = "https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png";
@@ -21,7 +21,7 @@ const Navbar = () => {
             alt ='pokeapi-logo'
             className='navbar-image'/>
             </div> 
-            <div>&#10084;&#65039; {favoritePokemons.lenght}</div>
+            <div> {favoritePokemons.lenght}</div>
             <div />
         </nav>
     )

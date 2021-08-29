@@ -2,12 +2,13 @@
 import './app.scss';
 //Importamos los componentes
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Searchbar from './components/Searchbar';
 import Pokedex from './components/Pokedex';
+import Modal from './components/Modal';
 import {getPokemonData, getPokemons, searchPokemon} from  './api';
-import {FavoriteProvider} from './components/contexts/favoriteContext';
-
+import {FavoriteProvider} from './components/contexts/FavoriteContext';
 
 /*Aplicamos un hook */
 const {useState, useEffect} = React;
@@ -107,7 +108,9 @@ export default function App() {
     updateFavoritePokemons: updateFavoritePokemons
     }}>
     <div>
+      <BrowserRouter>
       <Navbar />
+      <Switch>
         <div className="App">
           <Searchbar onSearch={onSearch} />
           {notFound ? ( <div className="not-found-text">No se encontro el Pokemon que buscabas 😥</div>) : (
@@ -120,6 +123,9 @@ export default function App() {
           />
           )}
         </div>
+        <Route exact path='/Modal' component = {Modal}/>
+        </Switch>
+        </BrowserRouter>
       </div>
     </FavoriteProvider>
     

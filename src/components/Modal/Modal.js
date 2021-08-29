@@ -12,7 +12,7 @@ export const Modal = ({ setShowModal, elements}) => {
       setShowModal(false);
     }
   };
-  {/*Imagen y caracteristicas del pokemon dentro del modal */}
+  /*Imagen y caracteristicas del pokemon dentro del modal */
   return ReactDom.createPortal(
     <div className="container" ref={modalRef} onClick={closeModal}>
       <div className="modal">

@@ -1,6 +1,6 @@
 //Importamos los componentes
-import React, {useContext} from 'react';
-import FavoriteContext from '../contexts/favoriteContext'
+import React, {useContext, Link} from 'react';
+import FavoriteContext from '../contexts/FavoriteContext'
 import {Modal} from '../Modal/Modal';
 import { useState } from "react";
 import { searchPokemon } from '../../api';
@@ -38,7 +38,8 @@ const Pokemon =  (props) => {
     
 
     return (
-        <div className= "pokemon-card">
+        
+        <div className= "pokemon-card"><Link to="/Modal">
             <div className="pokemon-img-container">
                 <img src={pokemon.sprites.front_default} alt={pokemon.name} />
             </div>
@@ -62,10 +63,11 @@ const Pokemon =  (props) => {
             <button className="caracteristicas-btn" onClick={openModal} 
             value={pokemon.name}>Ver caracteristicas</button>
             {showModal ? <Modal setShowModal={setShowModal}
-                                     elements = {props}
+                                     elements = {props} 
             /> : null}
             </div>
             </div>
+            </Link>
         </div>
     );
 };
